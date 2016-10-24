@@ -154,74 +154,9 @@ namespace IntegralWinForms.Classes
 
             return S;
 
-
-            //double h = (b - a) / n;
-            //double S = 0;
-            //for (int i = 0; i < n; i++)
-            //{
-            //    S += _F(a + i * h);
-            //}
-            //S *= h;
-            //return S;
-
-
         }
 
-        //public double CalCRectanglePool(double a, double b, long n)
-        //{
-        //    double S;
-        //    // calculate number of steps
-        //    double h = (double)((b - a) / n);
-        //    // object for lock mutex and synchronize threads
-        //    object monitor = new object();
-        //    S = (F11(a) + F11(b)) / 2;
 
-        //    // Every thread have own local data, 
-        //    // and thread calculate own part of integral
-        //    // then it sum in main thread with S+= local
-        //    Parallel.For(0, n, () => 0.0, (i, state, local) =>
-        //    {
-
-        //        local += F11(a + h * i);
-        //        return local;
-        //    }, local => { lock (monitor) S += local; });
-
-        //    S *= h;
-
-        //    return S;
-
-        //}
-        //private  static void ThreadPooll(double a, double b, long n, Func<double, double> _F)
-        //  {           
-
-        //      var events = new ManualResetEvent[4];
-        //      for (int i = 0; i < 4; i++)
-        //      {
-        //          int y = i;
-        //          events[i] = new ManualResetEvent(false);
-        //          ThreadPool.QueueUserWorkItem(() =>
-        //          {
-        //      double h = (b - a) / n;
-        //      double S = 0;         
-        //      for (int j = 0; j < n; j++)
-        //      {
-        //          S += _F(a + i * h);
-        //      }
-
-        //      events[y].Set();
-        //      S *= h;
-        //      return S;        
-        //          });
-
-        //      }
-        //      WaitHandle.WaitAll(events);
-
-        //} 
-        /// <summary>
-        /// ////////////////////////////////////////////////////////////////////////////////////////
-        /// </summary>
-        /// <param name="numberOfThreads"></param>
-        /// <returns></returns>
         public double CalcThreadPool(int numb)
         {
             double Sum = 0;
@@ -260,31 +195,31 @@ namespace IntegralWinForms.Classes
             }
             S *= h;
             return S;
-            //}
 
-            /// <summary>
-            /// //////////////////////////////////////////////////////////////////////////////////////////////
-            /// </summary>
-            /// <param name="n"></param>
-            /// <returns></returns>
+        }
+        public double ParallelTask(double a, double b, long N, int numb)
+        {
+            Task[] tasks = new Task[numb];
+            double h = (b - a) / n;
+            double S = 0;
+            for (int i = 0; i < numb; i++)
+            {
+                int i1 = i;
+                tasks[i] = Task.Run(() =>
+                {
+                    double S1 = 0;
+                    for (int j = i1 * (int)(n / numb); j < i1 * (int)(n / numb) + (int)(n / numb); j++)
+                    {
+                        S1 += F11(a + j * h);
+                    }
+                    S += S1;
+                });
+            }
 
+            Task.WaitAll(tasks);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            S *= h;
+            return S;
         }
     }
 
