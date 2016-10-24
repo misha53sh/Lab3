@@ -157,7 +157,7 @@ namespace IntegralWinForms
 
 
             ///////////////////////////////////////////////////////////////////////////////
-            DrawGraph22(a, b);
+            //DrawGraph22(a, b);
             DrawGraph30(a, b);
             DrawGraph31(a, b);
             DrawGraph40(a, b);
@@ -166,29 +166,29 @@ namespace IntegralWinForms
         }
 
 
-        private void DrawGraph22(double a, double b)
-        {
+        //private void DrawGraph22(double a, double b)
+        //{
 
-            chartNTime2.Series[1].Points.Clear();
+        //    chartNTime2.Series[1].Points.Clear();
 
-            int nStart22 = 1;
-            int nFinish22 = 15;
-            int nStep22 = 1;
-            int nom = 100000000;
-            Stopwatch sw22 = new Stopwatch();
+        //    int nStart22 = 1;
+        //    int nFinish22 = 15;
+        //    int nStep22 = 1;
+        //    int nom = 100000000;
+        //    Stopwatch sw22 = new Stopwatch();
 
-            for (int numb = nStart22; numb < nFinish22; numb += nStep22)
-            {
-                sw22.Start();
+        //    for (int numb = nStart22; numb < nFinish22; numb += nStep22)
+        //    {
+        //        sw22.Start();
 
-                Integral integ22 = new Integral(a, b, nom, SumIntegral);
-                double integ222 = integ22.ParallelTask(a,b,nom,numb);
-                sw22.Stop();
-                long time2 = sw22.ElapsedMilliseconds;
-                sw22.Reset();
-                chartNTime2.Series[1].Points.AddXY(numb, time2);
-            }
-        }
+        //        Integral integ22 = new Integral(a, b, nom, SumIntegral);
+        //        double integ222 = integ22.ParallelTask(a,b,nom,numb);
+        //        sw22.Stop();
+        //        long time2 = sw22.ElapsedMilliseconds;
+        //        sw22.Reset();
+        //        chartNTime2.Series[1].Points.AddXY(numb, time2);
+        //    }
+        //}
 
 
 
