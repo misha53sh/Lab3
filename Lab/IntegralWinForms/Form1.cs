@@ -154,15 +154,15 @@ namespace IntegralWinForms
                 sw21.Reset();
                 chartNTime2.Series[0].Points.AddXY(numb, time2);
             }
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
 
             ///////////////////////////////////////////////////////////////////////////////
             //DrawGraph22(a, b);
-=======
+//=======
             ///////////////////////////////////////////////////////////////////////////////
             DrawGraph22(a, b);
->>>>>>> refs/remotes/origin/Graf
+//>>>>>>> refs/remotes/origin/Graf
             DrawGraph30(a, b);
             DrawGraph31(a, b);
             DrawGraph40(a, b);
@@ -170,7 +170,7 @@ namespace IntegralWinForms
 
         }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
         //private void DrawGraph22(double a, double b)
         //{
@@ -197,7 +197,7 @@ namespace IntegralWinForms
         //}
 
 
-=======
+//=======
         private void DrawGraph22(double a, double b)
         {
 
@@ -221,7 +221,7 @@ namespace IntegralWinForms
                 chartNTime2.Series[1].Points.AddXY(numb, time2);
             }
         }
->>>>>>> refs/remotes/origin/Graf
+//>>>>>>> refs/remotes/origin/Graf
 
 
 
