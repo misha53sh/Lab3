@@ -138,7 +138,7 @@ namespace IntegralWinForms
             chartNTime2.Series[0].Points.Clear();
 
             int nStart21 = 1;
-            int nFinish21 = 15;
+            int nFinish21 = 8;
             int nStep21 = 1;
             int nom = 100000000;
             Stopwatch sw21 = new Stopwatch();
@@ -204,7 +204,7 @@ namespace IntegralWinForms
             chartNTime2.Series[1].Points.Clear();
 
             int nStart22 = 1;
-            int nFinish22 = 15;
+            int nFinish22 = 8;
             int nStep22 = 1;
             int nom = 100000000;
             Stopwatch sw22 = new Stopwatch();
