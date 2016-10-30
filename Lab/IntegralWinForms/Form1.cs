@@ -154,50 +154,47 @@ namespace IntegralWinForms
                 sw21.Reset();
                 chartNTime2.Series[0].Points.AddXY(numb, time2);
             }
-//<<<<<<< HEAD
 
-
-            ///////////////////////////////////////////////////////////////////////////////
-            //DrawGraph22(a, b);
-//=======
-            ///////////////////////////////////////////////////////////////////////////////
+             DrawGraph13(a, b);
             DrawGraph22(a, b);
-//>>>>>>> refs/remotes/origin/Graf
+
             DrawGraph30(a, b);
             DrawGraph31(a, b);
             DrawGraph40(a, b);
             DrawGraph41(a, b);
 
         }
+        private void DrawGraph13(double a, double b)
+        {
+            chartNTime.Series[2].Points.Clear();
+            int nStart13 = 10000000;
+            int nFinish13 = 100000000;
+            int nStep13 = 20000000;
+            int numb13 = 8;
+            // double a = Convert.ToDouble(tbA.Text);
+            // double b = Convert.ToDouble(tbB.Text);
 
-//<<<<<<< HEAD
+            Stopwatch sw13 = new Stopwatch();
 
-        //private void DrawGraph22(double a, double b)
-        //{
+            for (int n = nStart13; n < nFinish13; n += nStep13)
+            {
+                sw13.Start();
 
-        //    chartNTime2.Series[1].Points.Clear();
-
-        //    int nStart22 = 1;
-        //    int nFinish22 = 15;
-        //    int nStep22 = 1;
-        //    int nom = 100000000;
-        //    Stopwatch sw22 = new Stopwatch();
-
-        //    for (int numb = nStart22; numb < nFinish22; numb += nStep22)
-        //    {
-        //        sw22.Start();
-
-        //        Integral integ22 = new Integral(a, b, nom, SumIntegral);
-        //        double integ222 = integ22.ParallelTask(a,b,nom,numb);
-        //        sw22.Stop();
-        //        long time2 = sw22.ElapsedMilliseconds;
-        //        sw22.Reset();
-        //        chartNTime2.Series[1].Points.AddXY(numb, time2);
-        //    }
-        //}
+                Integral integ13 = new Integral(a, b, n, SumIntegral);
+                double integ133 = integ13.ParallelTask(a, b, n, numb13);
 
 
-//=======
+                //  Integral integ = new Integral.CalcRectangle(a, b, n, x => SumIntegral(x));
+
+                sw13.Stop();
+                long time13 = sw13.ElapsedMilliseconds;
+                sw13.Reset();
+                chartNTime.Series[2].Points.AddXY(n, time13);
+            }
+
+        }
+
+
         private void DrawGraph22(double a, double b)
         {
 
